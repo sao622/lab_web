@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>すぐに帰りたい - ルート情報</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container" id="suguni-page-content">
+        <!-- サイト共通ヘッダー -->
+        <header class="site-header">
+            <div class="status-bar"></div>
+            <nav class="nav-bar">
+                <a href="home.html" class="nav-bar__back-button"></a>
+                <h1 class="nav-bar__title">ルート情報</h1>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <!-- 出口の混雑情報カード -->
+            <section class="card">
+                <h2 class="card__title-small">出口の混雑情報</h2>
+                <div class="card__body">
+                    <img src="images/deguchi.png" alt="出口の混雑状況マップ" class="card__image">
+                    <p class="card__text-large">ノースエントランスが比較的空いてます</p>
+                </div>
+            </section>
+
+            <!-- リアルタイム情報カード -->
+            <section class="card">
+                <h2 class="card__title-small">リアルタイムの混雑情報</h2>
+                 <div class="card__body">
+                    <!-- 【ここを修正】Googleマップを静的な画像に差し替え -->
+                    <img src="images/リアル混雑状況.png" alt="リアルタイム混雑状況" class="card__image">
+                    
+                    <p class="card__text-medium">余韻スペース状況</p>
+                    <div class="status">
+                        <span class="status__indicator status__indicator--yellow"></span>
+                        <span class="status__text">やや混雑</span>
+                    </div>
+                    <a href="yoin.html" class="button-small button-secondary">余韻を楽しむ</a>
+                </div>
+            </section>
+            
+            <!-- タクシー配車ボタンのカード -->
+            <section class="card" id="taxi-card">
+                <h2 class="card__title-small">タクシーを利用する場合</h2>
+                <div class="card__body">
+                    <a href="https://go.goinc.jp/rd/run?lat=35.4542&lng=139.6426" target="_blank" rel="noopener noreferrer" class="link-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"></path><path d="M18 9h2a2 2 0 0 1 2 2v9l-4-4h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"></path></svg>
+                        <span>タクシーを呼ぶ (GO)</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- おすすめルートの開閉セクション -->
+            <section class="collapsible">
+                <button type="button" class="collapsible__trigger" id="route-trigger">
+                    <span>主要駅のおすすめルートを見る</span>
+                    <span class="collapsible__arrow"></span>
+                </button>
+                <div class="collapsible__content" id="route-content">
+                    <div class="card__body">
+                        <div class="tabs">
+                            <button type="button" class="tab-item is-active" data-tab="yokohama">横浜駅</button>
+                            <button type="button" class="tab-item" data-tab="shintakashima">新高島駅</button>
+                            <button type="button" class="tab-item" data-tab="minatomirai">みなとみらい駅</button>
+                        </div>
+                        <div class="tab-content">
+                            <!-- 横浜駅タブ -->
+                            <div id="yokohama" class="tab-panel is-active">
+                                 <img src="images/yokohama.png" alt="横浜駅へのルート" class="route-map-image">
+                                 <div class="route-meta">
+                                     <div class="status">
+                                         <span class="status__indicator status__indicator--red"></span>
+                                         <span class="status__text">非常に混雑</span>
+                                     </div>
+                                     <div class="route-time">
+                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                         <span>徒歩 約30分</span>
+                                     </div>
+                                 </div>
+                                 <a href="https://www.navitime.co.jp/transfer/?orvStationName=%E6%A8%AA%E6%B5%9C&orvStationCode=00006162" target="_blank" rel="noopener noreferrer" class="link-button route-info-button">
+                                     <span>横浜駅からの乗り換えを調べる</span>
+                                 </a>
+                            </div>
+                            <!-- 新高島駅タブ -->
+                             <div id="shintakashima" class="tab-panel">
+                                 <img src="images/shintakashima.png" alt="新高島駅へのルート" class="route-map-image">
+                                 <div class="route-meta">
+                                     <div class="status">
+                                         <span class="status__indicator status__indicator--orange"></span>
+                                         <span class="status__text">混雑</span>
+                                     </div>
+                                     <div class="route-time">
+                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                         <span>徒歩 約15分</span>
+                                     </div>
+                                 </div>
+                                 <a href="https://www.navitime.co.jp/transfer/?orvStationName=%E6%96%B0%E9%AB%98%E5%B3%B6&orvStationCode=00007336" target="_blank" rel="noopener noreferrer" class="link-button route-info-button">
+                                     <span>新高島駅からの乗り換えを調べる</span>
+                                 </a>
+                            </div>
+                            <!-- みなとみらい駅タブ -->
+                             <div id="minatomirai" class="tab-panel">
+                                 <img src="images/minatomirai.png" alt="みなとみらい駅へのルート" class="route-map-image">
+                                  <div class="route-meta">
+                                     <div class="status">
+                                         <span class="status__indicator status__indicator--yellow"></span>
+                                         <span class="status__text">やや混雑</span>
+                                     </div>
+                                      <div class="route-time">
+                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                         <span>徒歩 約15分</span>
+                                     </div>
+                                  </div>
+                                  <a href="https://www.navitime.co.jp/transfer/?orvStationName=%E3%81%BF%E3%81%AA%E3%81%A8%E3%81%BF%E3%82%89%E3%81%84&orvStationCode=00007335" target="_blank" rel="noopener noreferrer" class="link-button route-info-button">
+                                     <span>みなとみらい駅からの乗り換えを調べる</span>
+                                 </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

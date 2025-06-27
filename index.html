@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 【追加】レイアウト制御用のラッパー -->
+        <div class="page-content" id="home-page-content">
+            <!-- 背景画像用の要素 -->
+            <img src="images/haikei.png" alt="" class="home-background-image">
+
+            <!-- サイト共通ヘッダー -->
+            <header class="site-header">
+                <div class="status-bar"></div>
+                <nav class="nav-bar"></nav>
+            </header>
+
+            <!-- メインコンテンツ -->
+            <main class="main-content">
+                <a href="suguni.html" class="select-button button-primary">すぐに帰りたい</a>
+                <a href="yoin.html" class="select-button button-secondary">余韻を楽しむ</a>
+            </main>
+        </div>
+    </div>
+
+    <!-- ===== 【ここに追加】位置情報許可のモーダル ===== -->
+    <div class="modal-overlay is-hidden" id="location-modal">
+        <div class="modal-content location-modal-content">
+            <div class="modal-body">
+                <p class="modal-title">位置情報を許可しますか</p>
+                <p class="modal-description">許可することでこの機能が使えます。</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal-button" id="location-deny">いいえ</button>
+                <button type="button" class="modal-button modal-button--bold" id="location-allow">はい</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
